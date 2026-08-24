@@ -1,15 +1,28 @@
 PREFIX ?= /usr
 BUILD_TAGS ?= nogui
-VERSION ?= 1.0.0
+VERSION ?= 1.0.1
 PKG_NAME ?= ibus-bamboo-viet
 
-.PHONY: all test test-c build vicore config-tool gui deb clean install
+.PHONY: all test test-c build vicore config-tool gui deb clean install fuzz fuzz-stress
 
 all: build vicore config-tool gui
 
 test:
 	go test -tags $(BUILD_TAGS) -v ./...
 	$(MAKE) test-c
+
+fuzz:
+	@mkdir -p bin
+	go run ./cmd/fuzzer --mode=telex --count=500
+
+fuzz-stress:
+	@mkdir -p bin
+	go run ./cmd/fuzzer --mode=telex --stress=true
+
+fuzz-sentence:
+	@mkdir -p bin
+	go run ./cmd/fuzzer --sentence="$(SENTENCE)"
+
 
 vicore:
 	@mkdir -p bin
@@ -33,7 +46,11 @@ build:
 	@mkdir -p bin
 	go build -tags $(BUILD_TAGS) -o bin/ibus-engine-bamboo .
 
-deb: build vicore config-tool gui
+fuzzer:
+	@mkdir -p bin
+	go build -o bin/bamboo-viet-fuzzer ./cmd/fuzzer/
+
+deb: build vicore config-tool gui fuzzer
 	@echo "Creating Debian package staging directory..."
 	@rm -rf packaging/staging
 	@mkdir -p packaging/staging/DEBIAN
@@ -50,9 +67,11 @@ deb: build vicore config-tool gui
 	@cp bin/ibus-engine-bamboo packaging/staging/usr/lib/ibus-bamboo/
 	@cp bin/bamboo-viet-config packaging/staging/usr/bin/
 	@cp bin/bamboo-viet-gui packaging/staging/usr/bin/
+	@cp bin/bamboo-viet-fuzzer packaging/staging/usr/bin/
 	@cp cmd/gui/bamboo_viet_gui.py packaging/staging/usr/share/ibus-bamboo/
 	@chmod 755 packaging/staging/usr/bin/bamboo-viet-config
 	@chmod 755 packaging/staging/usr/bin/bamboo-viet-gui
+	@chmod 755 packaging/staging/usr/bin/bamboo-viet-fuzzer
 	@cp bin/libvicore.so packaging/staging/usr/lib/
 	@cp bin/libvicore.h packaging/staging/usr/include/
 	@cp data/bamboo.xml packaging/staging/usr/share/ibus/component/

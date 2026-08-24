@@ -944,11 +944,109 @@ code, pre {
   width: 45px;
 }
 
-.gui-window-body {
-  padding: 20px;
+/* GUI Tabs */
+.gui-tabs-header {
+  display: flex;
+  background: var(--bg-surface-elevated);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 0 10px;
+  gap: 4px;
+}
+
+.gui-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.gui-tab-btn:hover {
+  color: var(--text-main);
+}
+
+.gui-tab-btn.active {
+  color: var(--primary);
+  border-bottom-color: var(--primary);
+}
+
+.gui-tab-panel {
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.gui-tab-panel.active {
+  display: flex;
+}
+
+.gui-hint-text {
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+}
+
+.gui-hint-text tt {
+  background: var(--bg-surface-elevated);
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: var(--primary-light);
+  font-family: var(--font-mono);
+}
+
+.gui-preset-list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 6px;
+}
+
+.preset-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--bg-surface-elevated);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--text-main);
+}
+
+.badge-tag {
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.badge-tag.green {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
+
+.mock-fuzz-output {
+  margin-top: 8px;
+  padding: 10px;
+  background: var(--code-bg);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--primary-light);
+  line-height: 1.5;
+  border: 1px solid var(--border-subtle);
+  min-height: 80px;
+}
+
+.gui-window-body {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
 }
 
 .gui-group-box {
@@ -958,7 +1056,7 @@ code, pre {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .group-box-title {
@@ -974,7 +1072,7 @@ code, pre {
 
 .gui-form-row {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 110px 1fr;
   align-items: center;
   gap: 10px;
   font-size: 0.85rem;
@@ -1009,6 +1107,10 @@ code, pre {
   cursor: pointer;
 }
 
+.gui-checkbox.full-width {
+  grid-column: span 2;
+}
+
 .gui-checkbox input[type="checkbox"] {
   accent-color: var(--primary);
 }
@@ -1036,16 +1138,20 @@ code, pre {
   color: #032014;
 }
 
+.gui-btn.primary:hover {
+  background: var(--primary-light);
+  transform: translateY(-1px);
+}
+
 .gui-btn.secondary {
   background: var(--bg-surface-elevated);
   border-color: var(--border-subtle);
   color: var(--text-main);
 }
 
-.gui-btn.coffee {
-  background: rgba(245, 158, 11, 0.15);
-  border-color: rgba(245, 158, 11, 0.3);
-  color: #f59e0b;
+.gui-btn.secondary:hover {
+  border-color: var(--border-highlight);
+  color: var(--primary-light);
 }
 
 /* ==========================================================================

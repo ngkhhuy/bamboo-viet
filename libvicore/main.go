@@ -130,7 +130,11 @@ func vi_engine_process_key(
 	const ReturnKeyVal = 0xff0d
 	if keyVal == ReturnKeyVal {
 		if len(inst.preeditString) > 0 {
-			copyStringToC(inst.preeditString, outCommit, int(maxCommitLen))
+			finalWord := inst.preeditString
+			if !inst.engine.IsValid(false) && bamboo.HasAnyVietnameseRune(inst.preeditString) {
+				finalWord = inst.engine.GetProcessedString(bamboo.EnglishMode)
+			}
+			copyStringToC(finalWord, outCommit, int(maxCommitLen))
 			inst.engine.Reset()
 			inst.preeditString = ""
 			inst.rawKeys = nil
@@ -169,7 +173,11 @@ func vi_engine_process_key(
 	// Word break symbol handling (space, punctuation marks)
 	if bamboo.IsWordBreakSymbol(keyRune) {
 		if len(inst.preeditString) > 0 {
-			commitText := inst.preeditString + string(keyRune)
+			finalWord := inst.preeditString
+			if !inst.engine.IsValid(false) && bamboo.HasAnyVietnameseRune(inst.preeditString) {
+				finalWord = inst.engine.GetProcessedString(bamboo.EnglishMode)
+			}
+			commitText := finalWord + string(keyRune)
 			copyStringToC(commitText, outCommit, int(maxCommitLen))
 			inst.engine.Reset()
 			inst.preeditString = ""
@@ -230,7 +238,7 @@ func vi_engine_set_surrounding_text(handle C.uintptr_t, text *C.char, cursorPos 
 
 //export vi_engine_version
 func vi_engine_version() *C.char {
-	return C.CString("1.0.0-bamboo-viet")
+	return C.CString("1.0.1-bamboo-viet")
 }
 
 func copyStringToC(src string, dst *C.char, maxLen int) {

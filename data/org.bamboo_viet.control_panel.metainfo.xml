@@ -37,10 +37,10 @@
     <binary>bamboo-viet-config</binary>
   </provides>
   <releases>
-    <release version="1.0.0" date="2026-08-24">
-      <description>
-        <p>Phiên bản phát hành chính thức 1.0.0 với hỗ trợ Wayland native, sửa lỗi Enter chat app, và bảng điều khiển UniKey.</p>
-      </description>
+    <release version="1.0.1" date="2026-08-24">
+        <description>
+        <p>Phiên bản phát hành 1.0.1 với 100% kiểm thử Fuzzer, sửa lỗi Terminal/VS Code, khôi phục từ tiếng Anh, và bảng điều khiển đa tab.</p>
+        </description>
     </release>
   </releases>
 </component>

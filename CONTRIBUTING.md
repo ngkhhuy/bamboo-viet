@@ -41,7 +41,7 @@ Lệnh này sẽ tự động:
 ### Bước 4: Đóng Gói và Thử Nghiệm Gói Cài Đặt
 ```bash
 make deb
-sudo dpkg -i bin/ibus-bamboo-viet_1.0.0_amd64.deb
+sudo dpkg -i bin/ibus-bamboo-viet_1.0.1_amd64.deb
 ibus restart
 ```
 

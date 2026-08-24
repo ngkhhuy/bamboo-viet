@@ -39,7 +39,7 @@ cd bamboo-viet
 
 # Đóng gói và cài đặt
 make deb
-sudo dpkg -i bin/ibus-bamboo-viet_1.0.0_amd64.deb
+sudo dpkg -i bin/ibus-bamboo-viet_1.0.1_amd64.deb
 ibus restart
 ```
 

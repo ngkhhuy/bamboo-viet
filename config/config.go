@@ -47,13 +47,25 @@ var DefaultAppPresets = map[string]int{
 	"gedit":             SurroundingTextIM,
 	"gnome-text-editor": SurroundingTextIM,
 
-	// Terminals
-	"gnome-terminal": ForwardAsCommitIM,
-	"alacritty":      ForwardAsCommitIM,
-	"kitty":          ForwardAsCommitIM,
-	"konsole":        ForwardAsCommitIM,
-	"wezterm":        ForwardAsCommitIM,
-	"xterm":          ForwardAsCommitIM,
+	// Terminals (Standalone Emulators)
+	"gnome-terminal":        ForwardAsCommitIM,
+	"gnome-terminal-server": ForwardAsCommitIM,
+	"alacritty":             ForwardAsCommitIM,
+	"kitty":                 ForwardAsCommitIM,
+	"konsole":               ForwardAsCommitIM,
+	"wezterm":               ForwardAsCommitIM,
+	"wezterm-gui":           ForwardAsCommitIM,
+	"xterm":                 ForwardAsCommitIM,
+	"terminator":            ForwardAsCommitIM,
+	"tilix":                 ForwardAsCommitIM,
+	"foot":                  ForwardAsCommitIM,
+	"guake":                 ForwardAsCommitIM,
+	"tilda":                 ForwardAsCommitIM,
+	"rxvt":                  ForwardAsCommitIM,
+	"urxvt":                 ForwardAsCommitIM,
+	"ghostty":               ForwardAsCommitIM,
+	"tabby":                 ForwardAsCommitIM,
+	"hyper":                 ForwardAsCommitIM,
 }
 
 func ResolvePresetInputMode(wmClass string) (int, bool) {

@@ -20,7 +20,7 @@ else
     SUDO=""
 fi
 
-PKG_NAME="ibus-bamboo-viet_1.0.0_amd64.deb"
+PKG_NAME="ibus-bamboo-viet_1.0.1_amd64.deb"
 TEMP_DIR=$(mktemp -d)
 CLEANUP=true
 

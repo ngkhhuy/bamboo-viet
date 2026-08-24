@@ -1,5 +1,5 @@
-cmake_minimum_required(VERSION 3.10)
-project(fcitx5-bamboo-viet VERSION 1.0.0 LANGUAGES CXX C)
+cmake_minimum_required(VERSION 3.16)
+project(fcitx5-bamboo-viet VERSION 1.0.1 LANGUAGES CXX C)
 
 find_package(ECM 1.0.0 REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake" ${CMAKE_MODULE_PATH})
