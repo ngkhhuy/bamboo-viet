@@ -136,10 +136,12 @@ Chúng tôi rất hoan nghênh mọi đóng góp từ cộng đồng! Vui lòng 
 
 ## ☕ Ủng Hộ Phát Triển (Donate)
 
-Bamboo Viet là dự án phần mềm mã nguồn mở hoàn toàn miễn phí. Nếu dự án giúp ích cho công việc hàng ngày của bạn trên Linux, bạn có thể ủng hộ tác giả một ly cà phê để tiếp thêm động lực duy trì và phát triển:
+Bamboo Viet là dự án phần mềm mã nguồn mở hoàn toàn miễn phí. Nếu dự án giúp ích cho công việc hàng ngày của bạn trên Linux, bạn có thể ủng hộ tác giả một ly cà phê qua Ko-fi để tiếp thêm động lực duy trì và phát triển:
 
-* **💖 GitHub Sponsor:** [Sponsor @ngkhhuy trên GitHub](https://github.com/sponsors/ngkhhuy)
-* **☕ Buy Me A Coffee / Tài Trợ Tùy Tâm:** Mọi sự ủng hộ dù nhỏ nhất đều là nguồn khích lệ vô cùng to lớn đối với dự án!
+[![Support me on Ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/ngkhhuy)
+
+* **☕ Ko-fi:** [ko-fi.com/ngkhhuy](https://ko-fi.com/ngkhhuy)
+* Mọi sự ủng hộ tùy tâm từ cộng đồng đều là nguồn khích lệ vô cùng to lớn đối với sự phát triển của dự án!
 
 ---
 

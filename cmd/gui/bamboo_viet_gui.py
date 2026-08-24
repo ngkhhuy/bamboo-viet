@@ -70,24 +70,23 @@ class DonateDialog(Gtk.Dialog):
         frame.add(fgrid)
         box.pack_start(frame, True, True, 0)
 
-        # Row 1: GitHub Sponsors
-        lbl_gh = Gtk.Label(label="💖 <b>GitHub Sponsor:</b>")
+        # Row 1: Ko-fi
+        lbl_kofi = Gtk.Label(label="☕ <b>Ủng Hộ Qua Ko-fi:</b>")
+        lbl_kofi.set_use_markup(True)
+        lbl_kofi.set_xalign(0)
+        fgrid.attach(lbl_kofi, 0, 0, 1, 1)
+
+        btn_kofi = Gtk.LinkButton(uri="https://ko-fi.com/ngkhhuy", label="ko-fi.com/ngkhhuy")
+        fgrid.attach(btn_kofi, 1, 0, 1, 1)
+
+        # Row 2: GitHub Repository
+        lbl_gh = Gtk.Label(label="⭐ <b>GitHub Project:</b>")
         lbl_gh.set_use_markup(True)
         lbl_gh.set_xalign(0)
-        fgrid.attach(lbl_gh, 0, 0, 1, 1)
+        fgrid.attach(lbl_gh, 0, 1, 1, 1)
 
-        btn_link = Gtk.LinkButton(uri="https://github.com/ngkhhuy/bamboo-viet", label="github.com/ngkhhuy/bamboo-viet")
-        fgrid.attach(btn_link, 1, 0, 1, 1)
-
-        # Row 2: Community Support
-        lbl_comm = Gtk.Label(label="☕ <b>Tài Trợ Dự Án:</b>")
-        lbl_comm.set_use_markup(True)
-        lbl_comm.set_xalign(0)
-        fgrid.attach(lbl_comm, 0, 1, 1, 1)
-
-        lbl_comm_desc = Gtk.Label(label="Xem danh sách tài trợ & cập nhật trên GitHub")
-        lbl_comm_desc.set_xalign(0)
-        fgrid.attach(lbl_comm_desc, 1, 1, 1, 1)
+        btn_gh = Gtk.LinkButton(uri="https://github.com/ngkhhuy/bamboo-viet", label="github.com/ngkhhuy/bamboo-viet")
+        fgrid.attach(btn_gh, 1, 1, 1, 1)
 
         self.add_button("Đóng", Gtk.ResponseType.CLOSE)
         self.show_all()
