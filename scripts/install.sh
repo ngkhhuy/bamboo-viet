@@ -64,9 +64,26 @@ $SUDO dpkg -i "$DEB_PATH" || $SUDO apt-get install -f -y
 # 3. Restart IBus
 echo -e "${BLUE}🔄 Đang khởi động lại IBus...${NC}"
 ibus restart || echo "Lưu ý: Có thể chạy 'ibus restart' bằng tay nếu cần."
+sleep 1
+
+# 4. Auto-register in GNOME Input Sources if applicable
+if command -v gsettings >/dev/null 2>&1; then
+    CURRENT_SOURCES=$(gsettings get org.gnome.desktop.input-sources sources 2>/dev/null || echo "")
+    if [ -n "$CURRENT_SOURCES" ] && [[ "$CURRENT_SOURCES" != *"('ibus', 'Bamboo')"* ]]; then
+        # Add ('ibus', 'Bamboo') to existing sources list
+        if [ "$CURRENT_SOURCES" = "@a(ss) []" ] || [ "$CURRENT_SOURCES" = "[]" ]; then
+            NEW_SOURCES="[('ibus', 'Bamboo')]"
+        else
+            NEW_SOURCES=$(echo "$CURRENT_SOURCES" | sed "s/]$/, ('ibus', 'Bamboo')]/")
+        fi
+        gsettings set org.gnome.desktop.input-sources sources "$NEW_SOURCES" 2>/dev/null || true
+        echo -e "${GREEN}✓ Đã tự động kích hoạt bộ gõ 'Bamboo' vào thanh ngôn ngữ GNOME.${NC}"
+    fi
+fi
 
 echo -e "\n${BOLD}${GREEN}✅ Cài đặt Bamboo Viet thành công!${NC}\n"
-echo -e "${BOLD}Các bước tiếp theo:${NC}"
-echo -e "  1. Mở ${BOLD}Settings -> Keyboard -> Input Sources${NC}, nhấn ${BOLD}+${NC} và thêm ${BOLD}Vietnamese (Bamboo Viet)${NC}"
-echo -e "  2. Mở Bảng điều khiển bằng lệnh: ${BOLD}bamboo-viet-gui${NC} hoặc tìm trong Menu ứng dụng"
-echo -e "  3. Chuyển đổi bộ gõ bằng phím tắt ${BOLD}Super + Space${NC} và trải nghiệm!\n"
+echo -e "${BOLD}Hướng dẫn sử dụng:${NC}"
+echo -e "  - ${BOLD}Chuyển đổi bộ gõ:${NC} Nhấn phím tắt ${BOLD}Super + Space${NC} (hoặc Ctrl + Space)"
+echo -e "  - ${BOLD}Mở Bảng điều khiển:${NC} Chạy lệnh ${BOLD}bamboo-viet-gui${NC} hoặc tìm ${BOLD}Bamboo Viet Control Panel${NC} trong Menu ứng dụng"
+echo -e "  - ${BOLD}Nếu cần thêm thủ công:${NC} Vào ${BOLD}Settings -> Keyboard -> Input Sources${NC}, nhấn ${BOLD}+${NC} -> chọn ${BOLD}Vietnamese${NC} -> chọn ${BOLD}Bamboo${NC}\n"
+
