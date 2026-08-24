@@ -17,8 +17,8 @@ Dự án yêu cầu:
 
 ### Bước 1: Fork và Clone
 ```bash
-git clone https://github.com/bamboo-viet/bamboo-viet.git
-cd bamboo_viet
+git clone https://github.com/ngkhhuy/bamboo-viet.git
+cd bamboo-viet
 ```
 
 ### Bước 2: Tạo nhánh phát triển (Feature Branch)

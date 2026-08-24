@@ -1,15 +1,22 @@
-name: Bamboo Viet Release
+name: Release Bamboo Viet
 
 on:
   push:
     tags:
       - 'v*'
+      - '*'
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Release tag name (e.g. v1.0.0)'
+        required: true
+        default: 'v1.0.0'
 
 permissions:
   contents: write
 
 jobs:
-  release:
+  build-and-release:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,26 +34,46 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y gcc g++ make dpkg-dev libx11-dev libxtst-dev
 
-    - name: Run Test Suite
+    - name: Run Tests
       run: make test
 
-    - name: Build Debian Package
+    - name: Build Debian Package (.deb)
       run: make deb
 
-    - name: Generate Checksums
+    - name: Determine Tag
+      id: tag_info
       run: |
-        cd bin
-        sha256sum ibus-bamboo-viet_*.deb libvicore.so ibus-engine-bamboo bamboo-viet-config > SHA256SUMS.txt
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          echo "tag=${{ github.event.inputs.tag_name }}" >> $GITHUB_OUTPUT
+        else
+          echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+        fi
 
-    - name: Create GitHub Release
+    - name: Create GitHub Release and Upload .deb Asset
       uses: softprops/action-gh-release@v2
       with:
-        files: |
-          bin/ibus-bamboo-viet_*.deb
-          bin/libvicore.so
-          bin/libvicore.h
-          bin/bamboo-viet-config
-          bin/SHA256SUMS.txt
-        generate_release_notes: true
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        tag_name: ${{ steps.tag_info.outputs.tag }}
+        name: Bamboo Viet ${{ steps.tag_info.outputs.tag }}
+        body: |
+          🎋 **Bamboo Viet — Bộ Gõ Tiếng Việt Thế Hệ Mới Cho Linux**
+          
+          ### 📦 Cài đặt nhanh trên Ubuntu / Debian / Linux Mint / Pop!_OS:
+          ```bash
+          # 1. Tải gói cài đặt .deb
+          wget https://github.com/ngkhhuy/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+          
+          # 2. Cài đặt vào hệ thống
+          sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
+          
+          # 3. Khởi động lại IBus
+          ibus restart
+          ```
+          
+          ### 🚀 Cải tiến nổi bật:
+          - Sửa triệt để lỗi lặp từ Enter trong các ứng dụng Chat (Telegram, Slack, Messenger, Zalo).
+          - Khắc phục giật lag, nuốt chữ trong LibreOffice & Google Docs.
+          - Hỗ trợ tốt trên Wayland native và X11.
+          - Tích hợp Bảng điều khiển GUI phong cách UniKey (`bamboo-viet-gui`).
+        files: bin/ibus-bamboo-viet_1.0.0_amd64.deb
+        draft: false
+        prerelease: false

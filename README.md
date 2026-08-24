@@ -1,6 +1,6 @@
 # 🎋 Bamboo Viet — Bộ Gõ Tiếng Việt Hiện Đại Cho Linux
 
-[![CI](https://github.com/bamboo-viet/bamboo-viet/actions/workflows/ci.yml/badge.svg)](https://github.com/bamboo-viet/bamboo-viet/actions/workflows/ci.yml)
+[![CI](https://github.com/ngkhhuy/bamboo-viet/actions/workflows/ci.yml/badge.svg)](https://github.com/ngkhhuy/bamboo-viet/actions/workflows/ci.yml)
 [![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](LICENSE)
 [![Go Version](https://img.shields.io/badge/Go-1.23%2B-00ADD8?logo=go)](go.mod)
 [![Platform: Linux](https://img.shields.io/badge/Platform-Linux%20(Wayland%20%2F%20X11)-orange)](https://ubuntu.com)
@@ -22,31 +22,23 @@
 
 ---
 
-## 📦 Cài Đặt Nhanh (1 Lệnh)
+## 📦 Cài Đặt Nhanh (1 Dòng Lệnh)
 
-### Cách 1: Cài đặt từ gói `.deb` (Ubuntu, Debian, Linux Mint, Pop!_OS)
+### Cách 1: Cài đặt tự động bằng 1 dòng lệnh (Ubuntu, Debian, Linux Mint, Pop!_OS)
 
-1. Tải file cài đặt `.deb` mới nhất từ mục **Releases** hoặc tự build:
 ```bash
-sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb
-```
-2. Khởi động lại IBus:
-```bash
-ibus restart
+curl -fsSL https://raw.githubusercontent.com/ngkhhuy/bamboo-viet/main/scripts/install.sh | bash
 ```
 
-### Cách 2: Biên dịch và cài đặt từ mã nguồn
+### Cách 2: Tải file `.deb` hoặc biên dịch từ mã nguồn
 
 ```bash
 # Clone repository
-git clone https://github.com/bamboo-viet/bamboo-viet.git
-cd bamboo_viet
+git clone https://github.com/ngkhhuy/bamboo-viet.git
+cd bamboo-viet
 
-# Chạy test và biên dịch
-make test
+# Đóng gói và cài đặt
 make deb
-
-# Cài đặt
 sudo dpkg -i bin/ibus-bamboo-viet_1.0.0_amd64.deb
 ibus restart
 ```

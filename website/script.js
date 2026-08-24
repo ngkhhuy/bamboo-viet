@@ -276,14 +276,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const distroSnippets = {
     ubuntu: {
       title: 'Ubuntu / Debian / Linux Mint / Pop!_OS (.deb)',
-      code: `# 1. Tải gói cài đặt .deb mới nhất từ mục Releases
-wget https://github.com/bamboo-viet/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+      code: `# Cài đặt tự động nhanh nhất với 1 dòng lệnh:
+curl -fsSL https://raw.githubusercontent.com/ngkhhuy/bamboo-viet/main/scripts/install.sh | bash
 
-# 2. Cài đặt vào hệ thống
-sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
-
-# 3. Khởi động lại bộ gõ IBus
-ibus restart`
+# Hoặc tải file .deb thủ công:
+# wget https://github.com/ngkhhuy/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+# sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
+# ibus restart`
     },
     arch: {
       title: 'Arch Linux / Manjaro / EndeavourOS (AUR / PKGBUILD)',
@@ -304,7 +303,7 @@ ibus restart # hoặc fcitx5 -r -d`
 sudo dnf install -y golang ibus-devel libX11-devel libXtst-devel
 
 # Clone repository và cài đặt
-git clone https://github.com/bamboo-viet/bamboo-viet.git
+git clone https://github.com/ngkhhuy/bamboo-viet.git
 cd bamboo-viet
 make && sudo make install
 
@@ -314,7 +313,7 @@ ibus restart`
     source: {
       title: 'Biên dịch từ mã nguồn (Toàn bộ Distro Linux)',
       code: `# 1. Clone mã nguồn
-git clone https://github.com/bamboo-viet/bamboo-viet.git
+git clone https://github.com/ngkhhuy/bamboo-viet.git
 cd bamboo-viet
 
 # 2. Kiểm tra và biên dịch

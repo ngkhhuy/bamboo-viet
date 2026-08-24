@@ -18,8 +18,8 @@
     </ul>
   </description>
   <launchable type="desktop-id">ibus-setup-Bamboo.desktop</launchable>
-  <url type="homepage">https://github.com/bamboo-viet/bamboo-viet</url>
-  <url type="bugtracker">https://github.com/bamboo-viet/bamboo-viet/issues</url>
+  <url type="homepage">https://github.com/ngkhhuy/bamboo-viet</url>
+  <url type="bugtracker">https://github.com/ngkhhuy/bamboo-viet/issues</url>
   <categories>
     <category>Utility</category>
     <category>Settings</category>

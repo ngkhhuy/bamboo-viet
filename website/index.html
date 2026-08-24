@@ -72,7 +72,7 @@
         </button>
 
         <!-- GitHub Star Button -->
-        <a href="https://github.com/bamboo-viet/bamboo-viet" target="_blank" rel="noopener noreferrer" class="btn btn-github" id="github-btn">
+        <a href="https://github.com/ngkhhuy/bamboo-viet" target="_blank" rel="noopener noreferrer" class="btn btn-github" id="github-btn">
           <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
           </svg>
@@ -96,7 +96,7 @@
     <a href="#control-panel" class="mobile-nav-link">Bảng Điều Khiển</a>
     <a href="#install" class="mobile-nav-link">Cài Đặt</a>
     <a href="#faq" class="mobile-nav-link">Hỏi Đáp</a>
-    <a href="https://github.com/bamboo-viet/bamboo-viet" target="_blank" class="mobile-nav-link highlight">GitHub Repository ↗</a>
+    <a href="https://github.com/ngkhhuy/bamboo-viet" target="_blank" class="mobile-nav-link highlight">GitHub Repository ↗</a>
   </div>
 
   <main>
@@ -519,14 +519,13 @@
               </button>
             </div>
             <div class="terminal-content">
-              <pre><code id="terminal-code-block"># 1. Tải gói cài đặt .deb mới nhất từ mục Releases
-wget https://github.com/bamboo-viet/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+              <pre><code id="terminal-code-block"># Cài đặt tự động nhanh nhất với 1 dòng lệnh (Ubuntu / Debian / Mint / Pop!_OS)
+curl -fsSL https://raw.githubusercontent.com/ngkhhuy/bamboo-viet/main/scripts/install.sh | bash
 
-# 2. Cài đặt vào hệ thống
-sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
-
-# 3. Khởi động lại bộ gõ IBus
-ibus restart</code></pre>
+# Hoặc tải file .deb thủ công từ Releases:
+# wget https://github.com/ngkhhuy/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+# sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
+# ibus restart</code></pre>
             </div>
           </div>
 
@@ -623,10 +622,10 @@ ibus restart</code></pre>
               Bamboo Viet được phát triển vì cộng đồng người dùng Linux Việt Nam. Hãy để lại một ngôi sao ⭐️ trên GitHub hoặc tham gia đóng góp mã nguồn để cùng nhau xây dựng bộ gõ ngày một tốt hơn!
             </p>
             <div class="community-btns">
-              <a href="https://github.com/bamboo-viet/bamboo-viet" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <a href="https://github.com/ngkhhuy/bamboo-viet" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <span>⭐️ Star Trên GitHub</span>
               </a>
-              <a href="https://github.com/bamboo-viet/bamboo-viet/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <a href="https://github.com/ngkhhuy/bamboo-viet/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
                 <span>Báo Lỗi / Đóng Góp</span>
               </a>
             </div>
@@ -644,7 +643,7 @@ ibus restart</code></pre>
         <span>Bamboo Viet — Giữ trọn trải nghiệm gõ tiếng Việt trên Linux</span>
       </div>
       <div class="footer-meta">
-        <span>Phát hành theo giấy phép <a href="https://github.com/bamboo-viet/bamboo-viet/blob/main/LICENSE" target="_blank">GNU GPL-3.0</a></span>
+        <span>Phát hành theo giấy phép <a href="https://github.com/ngkhhuy/bamboo-viet/blob/main/LICENSE" target="_blank">GNU GPL-3.0</a></span>
         <span>•</span>
         <span>Made with ❤️ for Linux Vietnamese Community</span>
       </div>

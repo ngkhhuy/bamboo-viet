@@ -7,7 +7,7 @@ Depends: ibus, libx11-6, libxtst6, dbus
 Provides: ibus-bamboo
 Replaces: ibus-bamboo
 Conflicts: ibus-bamboo
-Maintainer: Bamboo Viet Project <https://github.com/bamboo-viet>
+Maintainer: Bamboo Viet Project <https://github.com/ngkhhuy/bamboo-viet>
 Description: Modern Vietnamese IME for Linux (IBus & Fcitx5)
  Bộ gõ tiếng Việt mã nguồn mở thế hệ mới cho Linux (hỗ trợ cả IBus và Fcitx5).
  - Xử lý dứt điểm lỗi lặp từ khi nhấn Enter trong các ứng dụng chat (Zalo, Slack, Telegram, Messenger).
