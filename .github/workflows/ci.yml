@@ -42,12 +42,13 @@ jobs:
 
     - name: Verify Debian Package Structure
       run: |
-        dpkg-deb -I bin/ibus-bamboo-viet_1.0.0_amd64.deb
-        dpkg-deb -c bin/ibus-bamboo-viet_1.0.0_amd64.deb
+        DEB_FILE=$(ls bin/ibus-bamboo-viet_*.deb | head -n 1)
+        dpkg-deb -I "$DEB_FILE"
+        dpkg-deb -c "$DEB_FILE"
 
     - name: Upload Debian Package Artifact
       uses: actions/upload-artifact@v4
       with:
         name: ibus-bamboo-viet-deb
-        path: bin/ibus-bamboo-viet_1.0.0_amd64.deb
+        path: bin/ibus-bamboo-viet_*.deb
         retention-days: 14

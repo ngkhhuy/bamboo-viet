@@ -60,20 +60,22 @@ jobs:
           ### 📦 Cài đặt nhanh trên Ubuntu / Debian / Linux Mint / Pop!_OS:
           ```bash
           # 1. Tải gói cài đặt .deb
-          wget https://github.com/ngkhhuy/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+          wget https://github.com/ngkhhuy/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.1_amd64.deb
           
           # 2. Cài đặt vào hệ thống
-          sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
+          sudo dpkg -i ibus-bamboo-viet_1.0.1_amd64.deb || sudo apt-get install -f -y
           
           # 3. Khởi động lại IBus
           ibus restart
           ```
           
-          ### 🚀 Cải tiến nổi bật:
-          - Sửa triệt để lỗi lặp từ Enter trong các ứng dụng Chat (Telegram, Slack, Messenger, Zalo).
-          - Khắc phục giật lag, nuốt chữ trong LibreOffice & Google Docs.
-          - Hỗ trợ tốt trên Wayland native và X11.
-          - Tích hợp Bảng điều khiển GUI phong cách UniKey (`bamboo-viet-gui`).
-        files: bin/ibus-bamboo-viet_1.0.0_amd64.deb
+          ### 🚀 Cải tiến nổi bật v1.0.1:
+          - 🧪 **100.00% Pass Fuzzer:** Đạt chuẩn chính xác tuyệt đối qua 1,476+ kịch bản mô phỏng thói quen gõ người thật.
+          - ✍️ **Sửa lỗi bỏ dấu muộn thực tế:** `hopwj` → `hợp`, `duocwj` → `dược`, `nuocws` → `nước`, `ddeer` → `để`, `vuwaf` → `vừa`.
+          - 💻 **Tối ưu Terminal & VS Code:** Tự động dùng `ForwardAsCommitIM` cho Linux terminal và tối ưu `Pre-edit` cho VS Code Integrated Terminal.
+          - 🔤 **Tự động khôi phục từ tiếng Anh:** Bảo toàn các từ `linux`, `box`, `index`, `text` khi kết thúc từ.
+          - 💬 **Sửa dứt điểm lỗi lặp từ khi bấm Enter:** Cơ chế `Commit-before-hide` độc quyền cho Telegram, Slack, Messenger, Zalo.
+          - ⚙️ **Bảng điều khiển GUI đa tab mới:** Đầy đủ 3 Tab quản lý tùy chọn nâng cao, App Presets và Fuzzer runner.
+        files: bin/ibus-bamboo-viet_*.deb
         draft: false
         prerelease: false
