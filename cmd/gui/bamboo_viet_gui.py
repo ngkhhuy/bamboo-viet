@@ -30,6 +30,69 @@ INPUT_MODES = [
     (6, "6. XTestFakeKeyEvent"),
 ]
 
+class DonateDialog(Gtk.Dialog):
+    def __init__(self, parent):
+        super().__init__(title="☕ Ủng Hộ Tác Giả - Bamboo Viet", transient_for=parent, flags=0)
+        self.set_default_size(480, 320)
+        self.set_modal(True)
+        self.set_resizable(False)
+
+        box = self.get_content_area()
+        box.set_spacing(12)
+        box.set_margin_start(20)
+        box.set_margin_end(20)
+        box.set_margin_top(20)
+        box.set_margin_bottom(15)
+
+        lbl_title = Gtk.Label(label="<span size='large' weight='bold'>🎋 Cảm Ơn Bạn Đã Sử Dụng Bamboo Viet!</span>")
+        lbl_title.set_use_markup(True)
+        lbl_title.set_xalign(0)
+        box.pack_start(lbl_title, False, False, 0)
+
+        lbl_desc = Gtk.Label(
+            label="Bamboo Viet là dự án phần mềm mã nguồn mở hoàn toàn miễn phí.\n"
+                  "Sự ủng hộ tự nguyện từ bạn là nguồn động viên quý giá giúp tác giả duy trì máy chủ, nghiên cứu cải tiến và phát triển bộ gõ ngày càng hoàn thiện hơn trên Linux!"
+        )
+        lbl_desc.set_line_wrap(True)
+        lbl_desc.set_xalign(0)
+        box.pack_start(lbl_desc, False, False, 0)
+
+        # Donation Info Frame
+        frame = Gtk.Frame(label=" Các Kênh Ủng Hộ Tự Nguyện ")
+        frame.set_shadow_type(Gtk.ShadowType.ETCHED_IN)
+        fgrid = Gtk.Grid()
+        fgrid.set_row_spacing(10)
+        fgrid.set_column_spacing(15)
+        fgrid.set_margin_start(15)
+        fgrid.set_margin_end(15)
+        fgrid.set_margin_top(15)
+        fgrid.set_margin_bottom(15)
+        frame.add(fgrid)
+        box.pack_start(frame, True, True, 0)
+
+        # Row 1: GitHub Sponsors
+        lbl_gh = Gtk.Label(label="💖 <b>GitHub Sponsor:</b>")
+        lbl_gh.set_use_markup(True)
+        lbl_gh.set_xalign(0)
+        fgrid.attach(lbl_gh, 0, 0, 1, 1)
+
+        btn_link = Gtk.LinkButton(uri="https://github.com/ngkhhuy/bamboo-viet", label="github.com/ngkhhuy/bamboo-viet")
+        fgrid.attach(btn_link, 1, 0, 1, 1)
+
+        # Row 2: Community Support
+        lbl_comm = Gtk.Label(label="☕ <b>Tài Trợ Dự Án:</b>")
+        lbl_comm.set_use_markup(True)
+        lbl_comm.set_xalign(0)
+        fgrid.attach(lbl_comm, 0, 1, 1, 1)
+
+        lbl_comm_desc = Gtk.Label(label="Xem danh sách tài trợ & cập nhật trên GitHub")
+        lbl_comm_desc.set_xalign(0)
+        fgrid.attach(lbl_comm_desc, 1, 1, 1, 1)
+
+        self.add_button("Đóng", Gtk.ResponseType.CLOSE)
+        self.show_all()
+
+
 class MacroEditorDialog(Gtk.Dialog):
     def __init__(self, parent):
         super().__init__(title="Bamboo Viet - Bảng Gõ Tắt", transient_for=parent, flags=0)
@@ -91,7 +154,7 @@ class MacroEditorDialog(Gtk.Dialog):
 class UniKeyControlPanel(Gtk.Window):
     def __init__(self):
         super().__init__(title="Bamboo Viet - Bảng Điều Khiển")
-        self.set_default_size(480, 240)
+        self.set_default_size(490, 250)
         self.set_resizable(False)
         self.set_position(Gtk.WindowPosition.CENTER)
 
@@ -176,32 +239,38 @@ class UniKeyControlPanel(Gtk.Window):
 
         # Button Đóng
         btn_close = Gtk.Button(label="Đóng")
-        btn_close.set_size_request(110, 32)
+        btn_close.set_size_request(115, 30)
         btn_close.get_style_context().add_class("suggested-action")
         btn_close.connect("clicked", self.on_close_clicked)
         btn_vbox.pack_start(btn_close, False, False, 0)
 
         # Button Mở rộng / Thu gọn
         self.btn_expand = Gtk.Button(label="Mở rộng >>")
-        self.btn_expand.set_size_request(110, 32)
+        self.btn_expand.set_size_request(115, 30)
         self.btn_expand.connect("clicked", self.on_toggle_expand)
         btn_vbox.pack_start(self.btn_expand, False, False, 0)
 
         # Button Bảng gõ tắt
         btn_macro = Gtk.Button(label="Bảng gõ tắt...")
-        btn_macro.set_size_request(110, 32)
+        btn_macro.set_size_request(115, 30)
         btn_macro.connect("clicked", self.on_open_macro_editor)
         btn_vbox.pack_start(btn_macro, False, False, 0)
 
         # Button Mặc định
         btn_default = Gtk.Button(label="Mặc định")
-        btn_default.set_size_request(110, 32)
+        btn_default.set_size_request(115, 30)
         btn_default.connect("clicked", self.on_reset_default)
         btn_vbox.pack_start(btn_default, False, False, 0)
 
+        # Button Ủng hộ tác giả (Donate)
+        btn_donate = Gtk.Button(label="☕ Ủng hộ...")
+        btn_donate.set_size_request(115, 30)
+        btn_donate.connect("clicked", self.on_donate_clicked)
+        btn_vbox.pack_start(btn_donate, False, False, 0)
+
         # Button Thông tin
         btn_about = Gtk.Button(label="Thông tin...")
-        btn_about.set_size_request(110, 32)
+        btn_about.set_size_request(115, 30)
         btn_about.connect("clicked", self.on_about_clicked)
         btn_vbox.pack_start(btn_about, False, False, 0)
 
@@ -304,6 +373,11 @@ class UniKeyControlPanel(Gtk.Window):
             dialog.save_macros()
         dialog.destroy()
 
+    def on_donate_clicked(self, widget):
+        dialog = DonateDialog(self)
+        dialog.run()
+        dialog.destroy()
+
     def on_reset_default(self, widget):
         self.combo_charset.set_active(0)
         self.combo_method.set_active(0)
@@ -320,7 +394,7 @@ class UniKeyControlPanel(Gtk.Window):
         about.set_program_name("Bamboo Viet")
         about.set_version("1.0.0")
         about.set_comments("Bộ gõ tiếng Việt hiện đại cho Linux (hỗ trợ Wayland native, Fcitx5 và IBus).\nĐã khắc phục triệt để lỗi Enter trong Chat, LibreOffice, Search Box và Electron apps.")
-        about.set_website("https://github.com/bamboo-viet/bamboo-viet")
+        about.set_website("https://github.com/ngkhhuy/bamboo-viet")
         about.set_website_label("GitHub Repository")
         about.set_authors(["Bamboo Viet Project Contributors", "Luong Thanh Lam (Original author)"])
         about.set_license_type(Gtk.License.GPL_3_0)

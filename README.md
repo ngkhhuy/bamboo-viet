@@ -134,7 +134,17 @@ Chúng tôi rất hoan nghênh mọi đóng góp từ cộng đồng! Vui lòng 
 
 ---
 
+## ☕ Ủng Hộ Phát Triển (Donate)
+
+Bamboo Viet là dự án phần mềm mã nguồn mở hoàn toàn miễn phí. Nếu dự án giúp ích cho công việc hàng ngày của bạn trên Linux, bạn có thể ủng hộ tác giả một ly cà phê để tiếp thêm động lực duy trì và phát triển:
+
+* **💖 GitHub Sponsor:** [Sponsor @ngkhhuy trên GitHub](https://github.com/sponsors/ngkhhuy)
+* **☕ Buy Me A Coffee / Tài Trợ Tùy Tâm:** Mọi sự ủng hộ dù nhỏ nhất đều là nguồn khích lệ vô cùng to lớn đối với dự án!
+
+---
+
 ## 📄 Bản Quyền & Giấy Phép
 
 Dự án được phát hành dưới giấy phép mã nguồn mở **GNU General Public License v3.0 (GPL-3.0)**. Xem chi tiết tại file [LICENSE](LICENSE).
 Thuật toán biến đổi âm tiết tiếng Việt sử dụng `bamboo-core` (Giấy phép MIT).
+
