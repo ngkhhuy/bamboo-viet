@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bamboo Viet — Bộ Gõ Tiếng Việt Hiện Đại Cho Linux (Wayland & X11)</title>
+  
+  <!-- SEO & OpenGraph Meta Tags -->
+  <meta name="description" content="Bamboo Viet là bộ gõ tiếng Việt thế hệ mới cho Linux (IBus & Fcitx5). Khắc phục triệt để lỗi lặp từ khi nhấn Enter trong Chat, tối ưu 100% cho Wayland native, LibreOffice và Electron.">
+  <meta name="keywords" content="bamboo viet, bo go tieng viet linux, ibus bamboo, fcitx5 bamboo, linux vietnamese ime, unikey linux, wayland vietnamese">
+  <meta name="author" content="Bamboo Viet Contributors">
+  
+  <meta property="og:title" content="Bamboo Viet — Bộ Gõ Tiếng Việt Hiện Đại Cho Linux">
+  <meta property="og:description" content="Chấm dứt lỗi lặp từ Enter trong Chat, tối ưu tốc độ phản hồi Wayland & LibreOffice, bảng điều khiển UniKey Style thân thiện.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/logo.svg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Decorative Gradient Orbs -->
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Navigation Bar -->
+  <header class="site-header" id="navbar">
+    <div class="container header-container">
+      <a href="#" class="brand-logo" id="brand-logo">
+        <img src="assets/logo.svg" alt="Bamboo Viet Logo" class="brand-icon" width="36" height="36">
+        <div class="brand-text">
+          <span class="brand-name">Bamboo<span class="brand-accent">Viet</span></span>
+          <span class="brand-badge">v1.0</span>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="main-nav">
+        <a href="#playground" class="nav-link">Gõ Thử Ngay</a>
+        <a href="#features" class="nav-link">Điểm Nổi Bật</a>
+        <a href="#control-panel" class="nav-link">Bảng Điều Khiển</a>
+        <a href="#install" class="nav-link">Cài Đặt</a>
+        <a href="#faq" class="nav-link">Hỏi Đáp</a>
+      </nav>
+
+      <div class="header-actions">
+        <!-- Theme Toggle Button -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" title="Chuyển đổi giao diện Sáng / Tối" aria-label="Toggle Theme">
+          <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- GitHub Star Button -->
+        <a href="https://github.com/bamboo-viet/bamboo-viet" target="_blank" rel="noopener noreferrer" class="btn btn-github" id="github-btn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          <span>Star trên GitHub</span>
+        </a>
+
+        <!-- Mobile Menu Hamburger -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" id="mobile-drawer">
+    <a href="#playground" class="mobile-nav-link">Gõ Thử Ngay</a>
+    <a href="#features" class="mobile-nav-link">Điểm Nổi Bật</a>
+    <a href="#control-panel" class="mobile-nav-link">Bảng Điều Khiển</a>
+    <a href="#install" class="mobile-nav-link">Cài Đặt</a>
+    <a href="#faq" class="mobile-nav-link">Hỏi Đáp</a>
+    <a href="https://github.com/bamboo-viet/bamboo-viet" target="_blank" class="mobile-nav-link highlight">GitHub Repository ↗</a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-container">
+        <!-- Hero Badge -->
+        <div class="badge hero-badge">
+          <span class="badge-dot"></span>
+          <span>🎋 Bộ gõ tiếng Việt thế hệ mới cho Linux (IBus & Fcitx5)</span>
+        </div>
+
+        <!-- Hero Heading -->
+        <h1 class="hero-title">
+          Gõ Tiếng Việt Hoàn Hảo <br>
+          <span class="gradient-text">Trên Mọi Distro Linux</span>
+        </h1>
+
+        <!-- Hero Subtitle -->
+        <p class="hero-desc">
+          Kế thừa tinh hoa từ <code>ibus-bamboo</code> & <code>ibus-lotus</code>, tập trung <strong>sửa dứt điểm lỗi lặp từ Enter trong Chat</strong>, tối ưu phản hồi siêu tốc trên Wayland native, LibreOffice và các ứng dụng Electron.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="hero-cta-group">
+          <a href="#install" class="btn btn-primary btn-lg">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Cài Đặt Ngay</span>
+          </a>
+          <a href="#playground" class="btn btn-secondary btn-lg">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <span>Thử Gõ Trực Tiếp</span>
+          </a>
+        </div>
+
+        <!-- Key Metrics / Feature Badges -->
+        <div class="hero-metrics">
+          <div class="metric-item">
+            <div class="metric-icon">⚡</div>
+            <div class="metric-text">
+              <strong>6x Nhanh Hơn</strong>
+              <span>Tốc độ D-Bus</span>
+            </div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <div class="metric-icon">🛡️</div>
+            <div class="metric-text">
+              <strong>Zero Enter Lag</strong>
+              <span>Không lặp từ Chat</span>
+            </div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <div class="metric-icon">🐧</div>
+            <div class="metric-text">
+              <strong>Wayland & X11</strong>
+              <span>Tương thích hoàn hảo</span>
+            </div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-item">
+            <div class="metric-icon">🧩</div>
+            <div class="metric-text">
+              <strong>IBus + Fcitx5</strong>
+              <span>Hỗ trợ cả hai</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Live Typing Playground Section -->
+    <section class="playground-section" id="playground">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">INTERACTIVE PLAYGROUND</span>
+          <h2 class="section-title">Trải Nghiệm Gõ Thử Trực Tiếp</h2>
+          <p class="section-subtitle">Thử nghiệm ngay cơ chế xử lý dấu tiếng Việt thông minh và khả năng bỏ dấu tự nhiên ngay trên trình duyệt.</p>
+        </div>
+
+        <div class="playground-card">
+          <!-- Playground Toolbar -->
+          <div class="playground-toolbar">
+            <div class="method-selector">
+              <span class="toolbar-label">Kiểu gõ:</span>
+              <button class="method-btn active" data-method="telex" id="btn-method-telex">Telex</button>
+              <button class="method-btn" data-method="vni" id="btn-method-vni">VNI</button>
+            </div>
+
+            <div class="quick-samples">
+              <span class="toolbar-label">Câu mẫu:</span>
+              <button class="sample-btn" data-text="vieejt nam quee huwowng toio">Việt Nam</button>
+              <button class="sample-btn" data-text="bamboo viet gox sieeu muwowjt treen linux">Bamboo Viet mượt mà</button>
+              <button class="sample-btn" data-text="khoong bao giowf bij lawpj tuwf khi gox enter">Không lặp từ Enter</button>
+            </div>
+
+            <button class="clear-btn" id="playground-clear-btn" title="Xóa toàn bộ nội dung">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="3 6 5 6 21 6"></polyline>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+              </svg>
+              <span>Xóa</span>
+            </button>
+          </div>
+
+          <!-- Playground Textarea -->
+          <div class="playground-input-area">
+            <textarea 
+              id="playground-input" 
+              class="playground-textarea" 
+              placeholder="Nhập thử phím tại đây... (Ví dụ gõ: 'bamboo vieetj gox tieengs vieetj cuwjc muwowjt!')"
+              rows="4"
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <!-- Playground Status & Key Sequence Live Preview -->
+          <div class="playground-footer">
+            <div class="status-indicator">
+              <span class="status-dot"></span>
+              <span id="playground-status-text">Đang dùng chế độ gõ Telex • Nhập liên tục tự nhiên</span>
+            </div>
+            <div class="char-count">
+              <span id="char-counter">0</span> ký tự
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chronic Bug Fixes & Feature Highlights Section -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">ĐIỂM NỔI BẬT & CẢI TIẾN</span>
+          <h2 class="section-title">Giải Quyết Triệt Để Mọi Lỗi Kinh Niên</h2>
+          <p class="section-subtitle">Bamboo Viet tập trung sửa tận gốc các bất tiện khiến người dùng Linux đau đầu suốt nhiều năm qua.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1: Enter in Chat -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper red-to-amber">
+              <span class="feature-emoji">💬</span>
+            </div>
+            <div class="feature-header-text">
+              <h3 class="feature-name">Sửa Lỗi Lặp Từ Khi Bấm Enter</h3>
+              <span class="status-tag tag-fixed">Đã Sửa Dứt Điểm</span>
+            </div>
+            <p class="feature-desc">
+              Không còn tình trạng lặp lại từ cuối cùng khi nhấn Enter gửi tin nhắn trong <strong>Telegram, Slack, Messenger, Zalo</strong> nhờ cơ chế <em>Commit-before-hide</em> độc quyền.
+            </p>
+            <div class="feature-diff">
+              <div class="diff-before">❌ Cũ: "Chào bạn bạn" (kèm gửi tin)</div>
+              <div class="diff-after">✅ Bamboo: "Chào bạn" (chuẩn xác 100%)</div>
+            </div>
+          </div>
+
+          <!-- Card 2: Wayland Native & Popups -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper emerald-to-teal">
+              <span class="feature-emoji">🚀</span>
+            </div>
+            <div class="feature-header-text">
+              <h3 class="feature-name">Wayland Native & Tách Luồng</h3>
+              <span class="status-tag tag-fixed">Tối Ưu Hoá Cao</span>
+            </div>
+            <p class="feature-desc">
+              Chấm dứt hiện tượng giật màn hình hoặc popup tương tác bị lỗi vị trí trên Wayland (GNOME, KDE Plasma, Hyprland, Sway). Hỗ trợ Fcitx5 & IBus mượt mà.
+            </p>
+            <div class="feature-diff">
+              <div class="diff-before">❌ Cũ: Bị đơ popup hoặc lệch tọa độ</div>
+              <div class="diff-after">✅ Bamboo: Tọa độ chính xác, không giật lag</div>
+            </div>
+          </div>
+
+          <!-- Card 3: LibreOffice & Docs Delay -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper blue-to-indigo">
+              <span class="feature-emoji">⚡</span>
+            </div>
+            <div class="feature-header-text">
+              <h3 class="feature-name">Tăng Tốc 6x D-Bus (Docs/LibreOffice)</h3>
+              <span class="status-tag tag-fixed">Tốc Độ Vượt Trội</span>
+            </div>
+            <p class="feature-desc">
+              Giải quyết triệt để lỗi nuốt chữ, nhảy con trỏ chuột thất thường khi soạn thảo văn bản trong LibreOffice Writer, Google Docs và OnlyOffice.
+            </p>
+            <div class="feature-diff">
+              <div class="diff-before">❌ Cũ: Độ trễ D-Bus ~200ms gây nuốt chữ</div>
+              <div class="diff-after">✅ Bamboo: Phản hồi tức thì (~30ms)</div>
+            </div>
+          </div>
+
+          <!-- Card 4: Search & URL Autocomplete -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper purple-to-pink">
+              <span class="feature-emoji">🔍</span>
+            </div>
+            <div class="feature-header-text">
+              <h3 class="feature-name">An Toàn Với Search & URL</h3>
+              <span class="status-tag tag-fixed">Selection-Aware</span>
+            </div>
+            <p class="feature-desc">
+              Khi gõ từ khóa vào thanh địa chỉ trình duyệt hoặc ô tìm kiếm có gợi ý autocomplete, Bamboo Viet tự phát hiện vùng chọn để không nuốt mất ký tự vừa gõ.
+            </p>
+            <div class="feature-diff">
+              <div class="diff-before">❌ Cũ: Gợi ý autocomplete đè mất chữ gõ</div>
+              <div class="diff-after">✅ Bamboo: Bảo toàn 100% nội dung gõ</div>
+            </div>
+          </div>
+
+          <!-- Card 5: Electron & Chromium Hardening -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper amber-to-orange">
+              <span class="feature-emoji">🛡️</span>
+            </div>
+            <div class="feature-header-text">
+              <h3 class="feature-name">Tối Ưu Riêng Cho Electron App</h3>
+              <span class="status-tag tag-fixed">App Preset Profiles</span>
+            </div>
+            <p class="feature-desc">
+              Tích hợp sẵn bộ thiết lập chuyên sâu cho VS Code, Chrome, Brave, Discord, Notion, Zalo PC... giúp bộ gõ nhận diện đúng môi trường để xử lý phím chuẩn nhất.
+            </p>
+            <div class="feature-diff">
+              <div class="diff-before">❌ Cũ: Hay nhảy dấu sai trong code editor</div>
+              <div class="diff-after">✅ Bamboo: Tương thích hoàn toàn IntelliSense</div>
+            </div>
+          </div>
+
+          <!-- Card 6: Shortcut Filter -->
+          <div class="feature-card">
+            <div class="feature-icon-wrapper cyan-to-blue">
+              <span class="feature-emoji">⌨️</span>
+            </div>
+            <div class="feature-header-text">
+              <h3 class="feature-name">Bộ Lọc Phím Tắt Thông Minh</h3>
+              <span class="status-tag tag-fixed">Smart Filter</span>
+            </div>
+            <p class="feature-desc">
+              Khi bạn bấm <code>Ctrl + C</code>, <code>Alt + Tab</code>, <code>Super</code> hoặc các tổ hợp phím gaming, bộ gõ tự động bỏ qua để không chèn nhầm ký tự.
+            </p>
+            <div class="feature-diff">
+              <div class="diff-before">❌ Cũ: Thỉnh thoảng bị kẹt phím modifier</div>
+              <div class="diff-after">✅ Bamboo: Nhận diện state phím chuẩn xác</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Control Panel Showcase Section -->
+    <section class="control-panel-section" id="control-panel">
+      <div class="container">
+        <div class="control-panel-wrapper">
+          <div class="control-panel-info">
+            <span class="section-badge">GIAO DIỆN THÂN THUỘC</span>
+            <h2 class="section-title">Bảng Điều Khiển Chuẩn Phong Cách UniKey</h2>
+            <p class="section-desc">
+              Không cần gõ lệnh phức tạp! Bamboo Viet đi kèm giao diện đồ họa GUI (GTK3) lấy cảm hứng từ UniKey huyền thoại trên Windows, giúp bạn dễ dàng chỉnh kiểu gõ, bảng mã, phím tắt và macro gõ tắt chỉ trong vài cú click.
+            </p>
+
+            <ul class="control-panel-features-list">
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Đa dạng bảng mã & kiểu gõ:</strong> Hỗ trợ Unicode, TCVN3 (ABC), VNI Windows, Unicode Tổ Hợp, VIQR cùng các kiểu gõ Telex, VNI, Simple Telex.
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>6 Chế độ gõ linh hoạt:</strong> Pre-edit (gạch chân), Surrounding Text (xóa lùi thông minh), ForwardKeyEvent, Forward as Commit (Terminal).
+                </div>
+              </li>
+              <li>
+                <span class="check-icon">✓</span>
+                <div>
+                  <strong>Trình quản lý Macro & App Presets:</strong> Tùy chỉnh danh sách gõ tắt phong phú, thêm ứng dụng ngoại lệ chỉ bằng 1 nút bấm.
+                </div>
+              </li>
+            </ul>
+
+            <div class="terminal-open-hint">
+              <span>Mở nhanh từ Terminal:</span>
+              <code>bamboo-viet-gui</code>
+            </div>
+          </div>
+
+          <!-- Interactive GUI Mockup Card -->
+          <div class="gui-mockup-card">
+            <!-- Window Titlebar -->
+            <div class="window-titlebar">
+              <div class="window-traffic-lights">
+                <span class="traffic-light close"></span>
+                <span class="traffic-light minimize"></span>
+                <span class="traffic-light maximize"></span>
+              </div>
+              <div class="window-title">🎋 Bamboo Viet — Bảng Điều Khiển</div>
+              <div class="window-spacer"></div>
+            </div>
+
+            <!-- GUI Body (UniKey Layout) -->
+            <div class="gui-window-body">
+              <div class="gui-group-box">
+                <div class="group-box-title">Điều Khiển Chính</div>
+                <div class="gui-form-row">
+                  <label for="gui-charset">Bảng mã:</label>
+                  <select id="gui-charset" class="gui-select">
+                    <option selected>Unicode dựng sẵn</option>
+                    <option>TCVN3 (ABC)</option>
+                    <option>VNI Windows</option>
+                    <option>Unicode Tổ hợp</option>
+                  </select>
+                </div>
+                <div class="gui-form-row">
+                  <label for="gui-method">Kiểu gõ:</label>
+                  <select id="gui-method" class="gui-select">
+                    <option selected>Telex</option>
+                    <option>VNI</option>
+                    <option>Simple Telex</option>
+                  </select>
+                </div>
+                <div class="gui-form-row">
+                  <label for="gui-mode">Chế độ gõ:</label>
+                  <select id="gui-mode" class="gui-select">
+                    <option selected>2. Surrounding Text (Không gạch chân)</option>
+                    <option>1. Pre-edit (Có gạch chân)</option>
+                    <option>5. Forward as Commit (Tối ưu Terminal)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="gui-group-box">
+                <div class="group-box-title">Tùy Chọn Bổ Sung</div>
+                <div class="gui-checkbox-grid">
+                  <label class="gui-checkbox">
+                    <input type="checkbox" checked>
+                    <span>Bật kiểm tra chính tả</span>
+                  </label>
+                  <label class="gui-checkbox">
+                    <input type="checkbox" checked>
+                    <span>Bỏ dấu tự do</span>
+                  </label>
+                  <label class="gui-checkbox">
+                    <input type="checkbox" checked>
+                    <span>Tự động khôi phục từ sai</span>
+                  </label>
+                  <label class="gui-checkbox">
+                    <input type="checkbox" checked>
+                    <span>Sửa lỗi Enter trong Chat</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- GUI Action Buttons -->
+              <div class="gui-bottom-actions">
+                <button class="gui-btn primary" id="gui-btn-save">Đóng & Lưu</button>
+                <button class="gui-btn secondary" id="gui-btn-expand">Mở rộng ▾</button>
+                <button class="gui-btn coffee" id="gui-btn-coffee">☕ Ủng hộ</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section class="install-section" id="install">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">HƯỚNG DẪN CÀI ĐẶT</span>
+          <h2 class="section-title">Cài Đặt Dễ Dàng Chỉ Với 1 Lệnh</h2>
+          <p class="section-subtitle">Hỗ trợ đầy đủ các bản phân phối Linux phổ biến nhất hiện nay.</p>
+        </div>
+
+        <div class="install-container">
+          <!-- Distro Selector Tabs -->
+          <div class="distro-tabs">
+            <button class="distro-tab-btn active" data-distro="ubuntu">
+              <span class="distro-icon">🟠</span>
+              <span>Ubuntu / Debian / Mint</span>
+            </button>
+            <button class="distro-tab-btn" data-distro="arch">
+              <span class="distro-icon">🔵</span>
+              <span>Arch Linux / Manjaro</span>
+            </button>
+            <button class="distro-tab-btn" data-distro="fedora">
+              <span class="distro-icon">🌐</span>
+              <span>Fedora / RHEL</span>
+            </button>
+            <button class="distro-tab-btn" data-distro="source">
+              <span class="distro-icon">⚙️</span>
+              <span>Build từ Mã Nguồn</span>
+            </button>
+          </div>
+
+          <!-- Code Snippet Terminal Box -->
+          <div class="terminal-box">
+            <div class="terminal-header">
+              <div class="terminal-dots">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <div class="terminal-title" id="terminal-distro-title">Ubuntu / Debian (.deb package)</div>
+              <button class="copy-cmd-btn" id="copy-cmd-btn" title="Sao chép toàn bộ lệnh">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <span id="copy-btn-text">Sao chép lệnh</span>
+              </button>
+            </div>
+            <div class="terminal-content">
+              <pre><code id="terminal-code-block"># 1. Tải gói cài đặt .deb mới nhất từ mục Releases
+wget https://github.com/bamboo-viet/bamboo-viet/releases/latest/download/ibus-bamboo-viet_1.0.0_amd64.deb
+
+# 2. Cài đặt vào hệ thống
+sudo dpkg -i ibus-bamboo-viet_1.0.0_amd64.deb || sudo apt-get install -f -y
+
+# 3. Khởi động lại bộ gõ IBus
+ibus restart</code></pre>
+            </div>
+          </div>
+
+          <!-- Post-install Steps Hint -->
+          <div class="post-install-grid">
+            <div class="post-card">
+              <div class="step-num">1</div>
+              <h4>Kích hoạt trong Settings</h4>
+              <p>Mở <strong>Settings -> Keyboard -> Input Sources</strong>, nhấn dấu <code>+</code> và tìm <strong>Vietnamese (Bamboo Viet)</strong>.</p>
+            </div>
+            <div class="post-card">
+              <div class="step-num">2</div>
+              <h4>Mở Bảng Điều Khiển</h4>
+              <p>Tìm kiếm ứng dụng <strong>"Bamboo Viet Control Panel"</strong> trong App Menu hoặc chạy lệnh <code>bamboo-viet-gui</code>.</p>
+            </div>
+            <div class="post-card">
+              <div class="step-num">3</div>
+              <h4>Tùy biến & Trải nghiệm</h4>
+              <p>Chọn kiểu gõ Telex hoặc VNI yêu thích và bắt đầu gõ tiếng Việt mượt mà trên mọi ứng dụng!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">CÂU HỎI THƯỜNG GẶP</span>
+          <h2 class="section-title">Giải Đáp Thắc Mắc</h2>
+          <p class="section-subtitle">Những câu hỏi phổ biến nhất khi cài đặt và sử dụng Bamboo Viet trên Linux.</p>
+        </div>
+
+        <div class="faq-accordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Bamboo Viet khác gì so với ibus-bamboo và ibus-unikey truyền thống?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Bamboo Viet là phiên bản cải tiến sâu tập trung vào môi trường Linux hiện đại. Dự án sửa dứt điểm lỗi lặp từ Enter trong các ứng dụng Chat (Telegram, Slack, Messenger), khắc phục độ trễ D-Bus trên LibreOffice/Google Docs, tối ưu Wayland native và đi kèm Bảng điều khiển GUI phong cách UniKey tiện dụng.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Bamboo Viet có hỗ trợ Fcitx5 bên cạnh IBus không?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Có! Dự án hỗ trợ trọn vẹn cả <strong>IBus</strong> lẫn <strong>Fcitx5</strong> (với module C++ fcitx5-bamboo-viet addon), giúp bạn thoải mái lựa chọn framework phù hợp với desktop environment của mình (GNOME, KDE Plasma, Hyprland, XFCE...).</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Tôi dùng Wayland trên GNOME / Hyprland thì cần lưu ý gì?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Bamboo Viet đã được tối ưu hóa sẵn cho Wayland với cơ chế Surrounding Text thông minh (Chế độ 2). Bạn không cần cấu hình biến môi trường phức tạp; chỉ cần cài đặt và chọn bộ gõ trong System Settings là hoạt động ngay.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Làm thế nào để thêm danh sách từ gõ tắt (Macro)?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <p>Bạn mở <strong>Bamboo Viet Control Panel</strong> -> nhấn nút <strong>Mở rộng</strong> -> chọn mục <strong>Bảng gõ tắt</strong>, hoặc chỉnh sửa trực tiếp file text tại <code>~/.config/ibus-bamboo/ibus-bamboo.macro.text</code> theo cú pháp <code>tu_viet_tat:tu_day_du</code>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Community & Donate Callout -->
+    <section class="community-section">
+      <div class="container">
+        <div class="community-card">
+          <div class="community-content">
+            <h2 class="community-title">Dự Án Mã Nguồn Mở Hoàn Toàn Miễn Phí</h2>
+            <p class="community-desc">
+              Bamboo Viet được phát triển vì cộng đồng người dùng Linux Việt Nam. Hãy để lại một ngôi sao ⭐️ trên GitHub hoặc tham gia đóng góp mã nguồn để cùng nhau xây dựng bộ gõ ngày một tốt hơn!
+            </p>
+            <div class="community-btns">
+              <a href="https://github.com/bamboo-viet/bamboo-viet" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <span>⭐️ Star Trên GitHub</span>
+              </a>
+              <a href="https://github.com/bamboo-viet/bamboo-viet/issues" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                <span>Báo Lỗi / Đóng Góp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <img src="assets/logo.svg" alt="Bamboo Viet" width="28" height="28">
+        <span>Bamboo Viet — Giữ trọn trải nghiệm gõ tiếng Việt trên Linux</span>
+      </div>
+      <div class="footer-meta">
+        <span>Phát hành theo giấy phép <a href="https://github.com/bamboo-viet/bamboo-viet/blob/main/LICENSE" target="_blank">GNU GPL-3.0</a></span>
+        <span>•</span>
+        <span>Made with ❤️ for Linux Vietnamese Community</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Popup -->
+  <div class="toast-notification" id="toast">
+    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    <span id="toast-message">Đã sao chép vào bộ nhớ tạm!</span>
+  </div>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>

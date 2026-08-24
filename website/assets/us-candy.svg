@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Gravit.io -->
+<svg width="48pt" height="48pt" style="isolation:isolate" version="1.1" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <linearGradient id="linearGradient8012" x1="25.466" x2="67.466" y1="25.279" y2="25.279" gradientTransform="translate(-22.466 -1.2792)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#01d9f6" offset="0"/>
+   <stop stop-color="#0197f6" offset=".98261"/>
+  </linearGradient>
+  <linearGradient id="linearGradient2795" x1="55.495" x2="64.57" y1="199.8" y2="199.8" gradientTransform="matrix(2.0186 0 0 1.8109 -97.181 -337.82)" gradientUnits="userSpaceOnUse">
+   <stop stop-color="#e9e7f5" offset="0"/>
+   <stop stop-color="#0ac8f6" offset="98.261"/>
+  </linearGradient>
+ </defs>
+ <g id="us-candy">
+  <path d="m35 7h3c1.656 0 3 1.344 3 3v3c0 1.104 0.896 2 2 2s2-0.896 2-2v-5c0-2.76-2.24-5-5-5h-32c-2.76 0-5 2.24-5 5v19c0 1.104 0.896 2 2 2s2-0.896 2-2v-17c0-1.656 1.344-3 3-3zm-22 34c1.104 0 2 0.896 2 2s-0.896 2-2 2h-5c-2.76 0-5-2.24-5-5v-5c0-1.104 0.896-2 2-2s2 0.896 2 2v3c0 1.656 1.344 3 3 3zm28-19c0-1.104 0.896-2 2-2s2 0.896 2 2v18c0 2.76-2.24 5-5 5h-18c-1.104 0-2-0.896-2-2s0.896-2 2-2h16c1.656 0 3-1.344 3-3z" fill="url(#linearGradient8012)"/>
+  <path d="m21.498 32.089c3.1229-0.04799 6.2459-0.12078 9.3687-0.15302 1.5955 0.07189 2.6626 1.6467 2.1721 2.9704-0.3234 1.0945-1.6048 1.7118-2.8111 1.5742-3.9383-0.01087-7.8781 0.02155-11.815-0.0163-2.1026-0.15048-3.7759-2.0088-3.5516-3.883 0.0028-5.9004-0.0059-11.801 0.0044-17.701 0.04071-1.921 2.0675-3.5612 4.2092-3.3644 3.7543 0.0091 7.5097-0.0163 11.263 0.01268 1.7073 0.08058 2.9911 2.0436 1.9715 3.3605-0.35577 0.97949-1.4152 1.6997-2.5873 1.5219-2.7412-0.11499-5.4825-0.22994-8.2237-0.34491v5.6181c2.7496-0.05414 5.4993-0.13654 8.2489-0.17276 1.5785 0.06392 2.64 1.6325 2.1421 2.9401-0.354 1.1192-1.6891 1.7186-2.9189 1.5531-2.4907-0.05541-4.9814-0.11082-7.4721-0.16624v6.2511z" fill="url(#linearGradient2795)" style="font-variant-caps:normal;font-variant-east-asian:normal;font-variant-ligatures:normal;font-variant-numeric:normal"/>
+ </g>
+</svg>
