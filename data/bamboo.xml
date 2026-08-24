@@ -22,10 +22,10 @@
     <name>org.freedesktop.IBus.bamboo</name>
     <description>Vietnamese input engine for IBus</description>
     <exec>/usr/lib/ibus-bamboo/ibus-engine-bamboo --ibus</exec>
-    <version>0.8.4</version>
-    <author>Luong Thanh Lam &lt;ltlam93@gmail.com&gt;</author>
+    <version>1.0.0</version>
+    <author>Bamboo Viet Project</author>
     <license>GPLv3</license>
-    <homepage>https://github.com/LotusInputEngine/ibus-lotus//</homepage>
+    <homepage>https://github.com/ngkhhuy/bamboo-viet</homepage>
     <textdomain>ibus-bamboo</textdomain>
     <engines>
           <engine>
@@ -33,12 +33,12 @@
               <name>Bamboo</name>
               <language>vi</language>
               <license>GPLv3</license>
-              <author>Luong Thanh Lam &lt;ltlam93@gmail.com&gt;</author>
+              <author>Bamboo Viet Project</author>
               <icon>/usr/share/ibus-bamboo/icons/vi.svg</icon>
               <layout>default</layout>
-              <longname>Bamboo</longname>
+              <longname>Bamboo Viet</longname>
               <description>Vietnamese input method editor</description>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
               <rank>1</rank>
           </engine>
           <engine>
@@ -46,13 +46,13 @@
               <name>Bamboo::Us</name>
               <language>vi</language>
               <license>GPLv3</license>
-              <author>Luong Thanh Lam &lt;ltlam93@gmail.com&gt;</author>
+              <author>Bamboo Viet Project</author>
               <icon>/usr/share/ibus-bamboo/icons/vi.svg</icon>
               <layout>us</layout>
-              <longname>Bamboo (US layout)</longname>
+              <longname>Bamboo Viet (US layout)</longname>
               <description>Vietnamese input method editor with US keyboard layout</description>
               <rank>1</rank>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
           </engine>
 	  <!-- Vietnamese Icons -->
           <engine>
@@ -63,10 +63,10 @@
               <author>Tran Duc Binh &lt;binhtran432k@gmail.com&gt;</author>
               <icon>/usr/share/ibus-bamboo/icons/vi-candy.svg</icon>
               <layout>default</layout>
-              <longname>Bamboo Candy</longname>
+              <longname>Bamboo Viet Candy</longname>
               <description>Vietnamese input method editor with US keyboard layout with Candy Icon</description>
               <rank>1</rank>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
           </engine>
           <engine>
               <symbol>vi</symbol>
@@ -76,10 +76,10 @@
               <author>Tran Duc Binh &lt;binhtran432k@gmail.com&gt;</author>
               <icon>/usr/share/ibus-bamboo/icons/vi-flag.svg</icon>
               <layout>default</layout>
-              <longname>Bamboo Flag</longname>
+              <longname>Bamboo Viet Flag</longname>
               <description>Vietnamese input method editor with US keyboard layout with Flag Icon</description>
               <rank>1</rank>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
           </engine>
 	  <!-- English (US) Icons -->
           <engine>
@@ -90,10 +90,10 @@
               <author>Tran Duc Binh &lt;binhtran432k@gmail.com&gt;</author>
               <icon>/usr/share/ibus-bamboo/icons/us.svg</icon>
               <layout>us</layout>
-              <longname>Bamboo English (US)</longname>
+              <longname>Bamboo Viet English (US)</longname>
               <description>Vietnamese input method editor with US keyboard layout with US Normal Icon</description>
               <rank>2</rank>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
           </engine>
           <engine>
               <symbol>en</symbol>
@@ -103,10 +103,10 @@
               <author>Tran Duc Binh &lt;binhtran432k@gmail.com&gt;</author>
               <icon>/usr/share/ibus-bamboo/icons/us-candy.svg</icon>
               <layout>us</layout>
-              <longname>Bamboo English (US) Candy</longname>
+              <longname>Bamboo Viet English (US) Candy</longname>
               <description>Vietnamese input method editor with US keyboard layout with US Candy Icon</description>
               <rank>2</rank>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
           </engine>
           <engine>
               <symbol>en</symbol>
@@ -116,10 +116,10 @@
               <author>Tran Duc Binh &lt;binhtran432k@gmail.com&gt;</author>
               <icon>/usr/share/ibus-bamboo/icons/us-flag.svg</icon>
               <layout>us</layout>
-              <longname>Bamboo English (US) Flag</longname>
+              <longname>Bamboo Viet English (US) Flag</longname>
               <description>Vietnamese input method editor with US keyboard layout with US Flag Icon</description>
               <rank>2</rank>
-              <setup>/usr/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+              <setup>/usr/bin/bamboo-viet-gui</setup>
           </engine>
     </engines>
 </component>

@@ -19,4 +19,4 @@
 
 package main
 
-var Version string
+var Version = "1.0.0"

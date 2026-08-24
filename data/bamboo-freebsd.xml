@@ -22,10 +22,10 @@
     <name>org.freedesktop.IBus.bamboo</name>
     <description>Vietnamese input engine for IBus</description>
     <exec>/usr/local/lib/ibus-bamboo/ibus-engine-bamboo --ibus</exec>
-    <version>0.8.4</version>
-    <author>Luong Thanh Lam &lt;ltlam93@gmail.com&gt;</author>
+    <version>1.0.0</version>
+    <author>Bamboo Viet Project</author>
     <license>GPLv3</license>
-    <homepage>https://github.com/LotusInputEngine/ibus-lotus//</homepage>
+    <homepage>https://github.com/ngkhhuy/bamboo-viet</homepage>
     <textdomain>ibus-bamboo</textdomain>
     <engines>
           <engine>
@@ -33,12 +33,12 @@
               <name>Bamboo</name>
               <language>vi</language>
               <license>GPLv3</license>
-              <author>Luong Thanh Lam &lt;ltlam93@gmail.com&gt;</author>
+              <author>Bamboo Viet Project</author>
 	      <icon>/usr/local/share/ibus-bamboo/icons/vi.svg</icon>
               <layout>default</layout>
-              <longname>Bamboo</longname>
+              <longname>Bamboo Viet</longname>
               <description>Vietnamese input method editor</description>
-	      <setup>/usr/local/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+	      <setup>/usr/local/bin/bamboo-viet-gui</setup>
               <rank>1</rank>
           </engine>
           <engine>
@@ -46,13 +46,13 @@
               <name>Bamboo::Us</name>
               <language>vi</language>
               <license>GPLv3</license>
-              <author>Luong Thanh Lam &lt;ltlam93@gmail.com&gt;</author>
+              <author>Bamboo Viet Project</author>
 	      <icon>/usr/local/share/ibus-bamboo/icons/vi.svg</icon>
               <layout>us</layout>
-              <longname>Bamboo (US layout)</longname>
+              <longname>Bamboo Viet (US layout)</longname>
               <description>Vietnamese input method editor with US keyboard layout</description>
               <rank>1</rank>
-	      <setup>/usr/local/lib/ibus-bamboo/ibus-engine-bamboo -gui</setup>
+	      <setup>/usr/local/bin/bamboo-viet-gui</setup>
           </engine>
 	  <!-- Vietnamese Icons -->
           <engine>

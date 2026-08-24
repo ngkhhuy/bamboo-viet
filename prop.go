@@ -61,7 +61,7 @@ var IBusSeparator = &ibus.Property{
 }
 
 func GetPropListByConfig(c *config.Config) *ibus.PropList {
-	var aboutText = "IBus " + EngineName + " " + Version
+	var aboutText = "🎋 Bamboo Viet " + Version
 	if !*embedded {
 		aboutText += " (Debug)"
 	}
