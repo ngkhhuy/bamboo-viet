@@ -16,19 +16,12 @@ confinement: classic
 apps:
   bamboo-viet-gui:
     command: usr/bin/bamboo-viet-gui
-    desktop: usr/share/applications/ibus-setup-Bamboo.desktop
-    extensions: [gnome]
-    plugs:
-      - desktop
-      - desktop-legacy
-      - x11
-      - wayland
-      - unity7
 
   bamboo-viet-config:
     command: usr/bin/bamboo-viet-config
-    plugs:
-      - home
+
+  bamboo-viet-fuzzer:
+    command: usr/bin/bamboo-viet-fuzzer
 
 parts:
   bamboo-viet:
