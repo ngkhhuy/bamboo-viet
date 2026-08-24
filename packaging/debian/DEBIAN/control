@@ -1,0 +1,15 @@
+Package: ibus-bamboo-viet
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: ibus, libx11-6, libxtst6, dbus
+Provides: ibus-bamboo
+Replaces: ibus-bamboo
+Conflicts: ibus-bamboo
+Maintainer: Bamboo Viet Project <https://github.com/bamboo-viet>
+Description: Modern Vietnamese IME for Linux (IBus & Fcitx5)
+ Bộ gõ tiếng Việt mã nguồn mở thế hệ mới cho Linux (hỗ trợ cả IBus và Fcitx5).
+ - Xử lý dứt điểm lỗi lặp từ khi nhấn Enter trong các ứng dụng chat (Zalo, Slack, Telegram, Messenger).
+ - Tối ưu hoàn hảo cho Wayland native, Chrome, VSCode, Zalo PC và LibreOffice.
+ - Đóng gói sẵn thư viện C-Shared libvicore và công cụ cấu hình bamboo-viet-config.

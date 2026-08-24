@@ -1,0 +1,6 @@
+github.com/BambooEngine/bamboo-core v0.0.0-20240916131919-b2e49a2b48c7 h1:sXj2UzNjOxmX4xxk8bLWMECamsKn8vT3XSe1klDvsV0=
+github.com/BambooEngine/bamboo-core v0.0.0-20240916131919-b2e49a2b48c7/go.mod h1:OxsVN3QJM/OrAVsnsSrSTC2SOudVOrb0vTw1dJrcOK4=
+github.com/LotusInputEngine/goibus v0.0.0-20250813085656-9db4ede7ac6a h1:lhXey0BMcP9Cmn8JYZSJZMLU3OSv7INw/59bcWr+0SY=
+github.com/LotusInputEngine/goibus v0.0.0-20250813085656-9db4ede7ac6a/go.mod h1:Tt5uCBp2f7aXGB7fZwgaRnowbczd008XtD/dVwrm0K8=
+github.com/godbus/dbus/v5 v5.1.0 h1:4KLkAxT3aOY8Li4FRJe/KvhoNFFxo0m6fNuFUO8QJUk=
+github.com/godbus/dbus/v5 v5.1.0/go.mod h1:xhWf0FNVPg57R7Z0UbKHbJfkEywrmjJnf7w5xrFpKfA=

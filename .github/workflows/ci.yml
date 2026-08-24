@@ -1,0 +1,53 @@
+name: Bamboo Viet CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.23'
+        cache: true
+
+    - name: Install Build Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc g++ make dpkg-dev
+
+    - name: Run Test Suite (Go Tests & C ABI Tests)
+      run: make test
+
+    - name: Build IBus Engine Binary
+      run: make build
+
+    - name: Build C-Shared Library (libvicore.so)
+      run: make vicore
+
+    - name: Build Configuration Tool
+      run: make config-tool
+
+    - name: Build Debian Package (.deb)
+      run: make deb
+
+    - name: Verify Debian Package Structure
+      run: |
+        dpkg-deb -I bin/ibus-bamboo-viet_1.0.0_amd64.deb
+        dpkg-deb -c bin/ibus-bamboo-viet_1.0.0_amd64.deb
+
+    - name: Upload Debian Package Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ibus-bamboo-viet-deb
+        path: bin/ibus-bamboo-viet_1.0.0_amd64.deb
+        retention-days: 14

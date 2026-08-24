@@ -1,0 +1,28 @@
+# Binaries and build outputs
+bin/
+*.so
+*.a
+*.o
+*.deb
+*.rpm
+
+# Debian packaging staging
+packaging/staging/
+
+# Upstream analysis clones (Phase 0 research)
+upstream/
+
+# Go build artifacts
+*.test
+*.prof
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE and OS files
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*~

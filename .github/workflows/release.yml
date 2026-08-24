@@ -1,0 +1,52 @@
+name: Bamboo Viet Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Go
+      uses: actions/setup-go@v5
+      with:
+        go-version: '1.23'
+        cache: true
+
+    - name: Install Build Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc g++ make dpkg-dev
+
+    - name: Run Test Suite
+      run: make test
+
+    - name: Build Debian Package
+      run: make deb
+
+    - name: Generate Checksums
+      run: |
+        cd bin
+        sha256sum ibus-bamboo-viet_*.deb libvicore.so ibus-engine-bamboo bamboo-viet-config > SHA256SUMS.txt
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          bin/ibus-bamboo-viet_*.deb
+          bin/libvicore.so
+          bin/libvicore.h
+          bin/bamboo-viet-config
+          bin/SHA256SUMS.txt
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

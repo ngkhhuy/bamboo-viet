@@ -1,0 +1,6 @@
+[InputMethod]
+Name=Bamboo Viet (Telex)
+Icon=input-keyboard
+LangCode=vi
+Addon=bamboo-viet
+Configurable=True

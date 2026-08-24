@@ -1,0 +1,9 @@
+[Addon]
+Name=Bamboo Viet Vietnamese Engine
+Comment=Modern Vietnamese IME Engine for Fcitx5
+Category=InputMethod
+Type=SharedLibrary
+Library=bamboo-viet
+OnDemand=True
+Configurable=True
+Version=1.0.0

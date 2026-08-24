@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Bamboo Viet Control Panel
+GenericName=Vietnamese Input Method Configuration
+Comment=Bảng điều khiển bộ gõ tiếng Việt Bamboo Viet (UniKey Style)
+Type=Application
+Exec=/usr/bin/bamboo-viet-gui
+Icon=/usr/share/ibus-bamboo/icons/vi.svg
+Categories=Settings;Utility;
+Keywords=Vietnamese;Input;IME;Unikey;Telex;VNI;Bamboo;
+StartupNotify=true
+Terminal=false

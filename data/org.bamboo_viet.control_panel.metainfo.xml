@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.bamboo_viet.control_panel</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <name>Bamboo Viet</name>
+  <summary>Bộ gõ tiếng Việt hiện đại cho Linux (IBus &amp; Fcitx5)</summary>
+  <description>
+    <p>
+      Bamboo Viet là bộ gõ tiếng Việt mã nguồn mở thế hệ mới cho Linux (hỗ trợ cả Wayland native và X11).
+    </p>
+    <p>Các tính năng nổi bật:</p>
+    <ul>
+      <li>Xử lý triệt để lỗi lặp từ khi nhấn Enter trong các ứng dụng chat (Zalo, Slack, Telegram, Messenger).</li>
+      <li>Tối ưu hóa hoàn hảo cho LibreOffice, Google Docs và trình duyệt Chrome/Firefox.</li>
+      <li>Tích hợp sẵn bảng điều khiển giao diện đồ họa chuẩn phong cách UniKey trên Windows.</li>
+      <li>Hỗ trợ đa dạng kiểu gõ (Telex, VNI, Simple Telex) và bảng mã (Unicode, TCVN3, VNI Windows...).</li>
+    </ul>
+  </description>
+  <launchable type="desktop-id">ibus-setup-Bamboo.desktop</launchable>
+  <url type="homepage">https://github.com/bamboo-viet/bamboo-viet</url>
+  <url type="bugtracker">https://github.com/bamboo-viet/bamboo-viet/issues</url>
+  <categories>
+    <category>Utility</category>
+    <category>Settings</category>
+  </categories>
+  <keywords>
+    <keyword>Vietnamese</keyword>
+    <keyword>IME</keyword>
+    <keyword>Input</keyword>
+    <keyword>Unikey</keyword>
+    <keyword>Telex</keyword>
+    <keyword>VNI</keyword>
+  </keywords>
+  <provides>
+    <binary>bamboo-viet-gui</binary>
+    <binary>bamboo-viet-config</binary>
+  </provides>
+  <releases>
+    <release version="1.0.0" date="2026-08-24">
+      <description>
+        <p>Phiên bản phát hành chính thức 1.0.0 với hỗ trợ Wayland native, sửa lỗi Enter chat app, và bảng điều khiển UniKey.</p>
+      </description>
+    </release>
+  </releases>
+</component>

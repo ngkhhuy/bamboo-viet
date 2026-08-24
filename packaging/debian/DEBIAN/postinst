@@ -1,0 +1,23 @@
+#!/bin/sh
+set -e
+
+# Update desktop database if available
+if command -v update-desktop-database > /dev/null 2>&1; then
+    update-desktop-database -q /usr/share/applications || true
+fi
+
+# Update icon caches
+if command -v gtk-update-icon-cache > /dev/null 2>&1; then
+    gtk-update-icon-cache -q /usr/share/icons/hicolor || true
+fi
+
+# Update ldconfig for libvicore.so
+ldconfig || true
+
+echo "=========================================================="
+echo " Bamboo Viet Vietnamese IME has been installed successfully!"
+echo " - To activate on IBus: ibus restart"
+echo " - Configuration tool : bamboo-viet-config status"
+echo "=========================================================="
+
+exit 0
