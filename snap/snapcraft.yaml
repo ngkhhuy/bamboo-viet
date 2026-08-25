@@ -27,11 +27,12 @@ parts:
   bamboo-viet:
     plugin: make
     source: .
+    build-snaps:
+      - go/latest/stable
     build-packages:
       - gcc
       - g++
       - make
-      - golang-go
       - libx11-dev
       - libxtst-dev
     stage-packages:

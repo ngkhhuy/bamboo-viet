@@ -5,6 +5,9 @@ bin/
 *.o
 *.deb
 *.rpm
+*.snap
+snapcraft-*.txt
+.snapcraft/
 
 # Debian packaging staging
 packaging/staging/
