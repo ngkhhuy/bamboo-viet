@@ -1,4 +1,5 @@
 name: bamboo-viet
+title: Bamboo Viet
 base: core22
 version: '1.0.1'
 summary: Bộ gõ tiếng Việt hiện đại cho Linux (IBus & Fcitx5)
@@ -9,6 +10,11 @@ description: |
   - Tự động khôi phục từ tiếng Anh (linux, box, index) khi kết thúc từ.
   - Đi kèm Bảng điều khiển GUI đa tab chuẩn phong cách UniKey tiện dụng.
   - Đạt chuẩn 100% độ chính xác kiểm thử Fuzzer tự động.
+
+license: GPL-3.0
+website: https://github.com/ngkhhuy/bamboo-viet
+source-code: https://github.com/ngkhhuy/bamboo-viet
+issues: https://github.com/ngkhhuy/bamboo-viet/issues
 
 grade: stable
 confinement: classic

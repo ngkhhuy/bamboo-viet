@@ -82,5 +82,27 @@ deb: build vicore config-tool gui fuzzer
 	@dpkg-deb -b packaging/staging bin/$(PKG_NAME)_$(VERSION)_amd64.deb
 	@echo "✓ Debian package created at bin/$(PKG_NAME)_$(VERSION)_amd64.deb"
 
+install: build vicore config-tool gui fuzzer
+	install -d $(DESTDIR)$(PREFIX)/bin
+	install -d $(DESTDIR)$(PREFIX)/lib/ibus-bamboo
+	install -d $(DESTDIR)$(PREFIX)/lib
+	install -d $(DESTDIR)$(PREFIX)/include
+	install -d $(DESTDIR)$(PREFIX)/share/ibus/component
+	install -d $(DESTDIR)$(PREFIX)/share/applications
+	install -d $(DESTDIR)$(PREFIX)/share/metainfo
+	install -d $(DESTDIR)$(PREFIX)/share/ibus-bamboo/data
+	install -d $(DESTDIR)$(PREFIX)/share/ibus-bamboo/icons
+	install -m 755 bin/ibus-engine-bamboo $(DESTDIR)$(PREFIX)/lib/ibus-bamboo/
+	install -m 755 bin/bamboo-viet-config $(DESTDIR)$(PREFIX)/bin/
+	install -m 755 bin/bamboo-viet-gui $(DESTDIR)$(PREFIX)/bin/
+	install -m 755 bin/bamboo-viet-fuzzer $(DESTDIR)$(PREFIX)/bin/
+	install -m 644 bin/libvicore.so $(DESTDIR)$(PREFIX)/lib/
+	install -m 644 bin/libvicore.h $(DESTDIR)$(PREFIX)/include/
+	install -m 644 data/bamboo.xml $(DESTDIR)$(PREFIX)/share/ibus/component/
+	install -m 644 data/ibus-setup-Bamboo.desktop $(DESTDIR)$(PREFIX)/share/applications/
+	install -m 644 data/org.bamboo_viet.control_panel.metainfo.xml $(DESTDIR)$(PREFIX)/share/metainfo/
+	cp -r data/* $(DESTDIR)$(PREFIX)/share/ibus-bamboo/data/
+	cp -r icons/* $(DESTDIR)$(PREFIX)/share/ibus-bamboo/icons/
+
 clean:
 	rm -rf bin/ packaging/staging/
